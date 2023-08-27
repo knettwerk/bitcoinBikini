@@ -1,0 +1,307 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    text-rendering: optimizeSpeed;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 64px 0;
+}
+
+.navbar .left {
+    font-size:32px;
+    font-weight: bold;
+}
+
+.navbar .right {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .right a {
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar .right a:hover {
+    text-decoration: underline;
+}
+
+.navbar .right img {
+    width: 24px;
+    height: 24px;
+}
+
+.navbar .hamburger {
+    height: 50px;
+    width: 50px;
+    display: none;
+}
+
+.mobileNav {
+    Width: 80px;
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: -160px;
+    padding: 16px;
+    transition: transform 0.3s;
+}
+
+.mobileNav img {
+    width: 24px;
+    height: 24px;
+}
+
+.openDrawer {
+    transform: translateX(-160px);
+}
+
+.mobileNav a {
+    text-decoration: none;
+    color: #000;
+    margin: 16px 0;
+}
+
+.mobileNav a:hover {
+    text-decoration: underline;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    background-color: #000;
+    height: 4px;
+    width: 36;
+    margin: 4px;
+    border-radius: 20px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-areas:
+    "eth eth blu"
+    "eth eth coaster"
+    "cube astro coaster"
+    "splash insta insta"
+    "splash insta insta"
+    "foam foam dimensional"
+    "foam foam dimensional";
+    grid-gap: 16px;
+    width: 100%;
+}
+
+#eth {
+    grid-area: eth;
+}
+
+#blu {
+    grid-area: blu;
+}
+
+#coaster {
+    grid-area: coaster;
+}
+
+#cube {
+    grid-area: cube;
+}
+
+#astro {
+    grid-area: astro;
+}
+
+#splash {
+    grid-area: splash;
+}
+
+#insta {
+    grid-area: insta;
+}
+
+#foam {
+    grid-area: foam;
+}
+
+#dimensional {
+    grid-area: dimensional;
+}
+
+.project {
+    position: relative;
+}
+
+.project img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.project .overlay {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 36px;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.project .overlay:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.project .white {
+    color: #f5f5f5;
+}
+
+.footer {
+    text-align: center;
+    padding: 64px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .container {
+        max-width: 100%;
+    }
+    .project-grid {
+        max-width: 100%;
+        margin: 0 auto;
+        grid-template-areas:
+        "eth eth"
+        "blu coaster"
+        "cube astro"
+        "insta insta"
+        "splash foam"
+        "dimensional dimensional";
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .project-grid {
+        grid-template-areas:
+        "eth eth"
+        "blu blu"
+        "coaster coaster"
+        "cube astro"
+        "insta insta"
+        "splash splash"
+        "foam foam"
+        "dimensional dimensional";
+    }
+    .project .overlay {
+        font-size: 22px;;
+    }
+
+    .footer {
+        padding: 30px;
+        font-size: 14px;
+    }
+
+    .navbar .right {
+        display: none;
+    }
+
+    .navbar .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .navbar {
+        padding: 20px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        background-color: #fff;
+        width: 100%;
+        padding: 16px 24px;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .project-grid {
+        margin-top: 100px;
+    }
+}
+
+.animateBar1 {
+    animation: flipBar1 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.animateBar2 {
+    animation: fadeBar2 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.animateBar3 {
+    animation: flipBar3 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flipBar1 {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(45deg) translate(4px, 10px);
+    }
+}
+
+@keyframes fadeBar2 {
+    from {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    to {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+}
+
+@keyframes flipBar3 {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-45deg) translate(4px, -10px);
+    }
+}
